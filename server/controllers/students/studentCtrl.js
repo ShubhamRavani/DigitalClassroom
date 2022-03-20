@@ -34,7 +34,7 @@ const studentRegisterCtrl = expressAsyncHandler(async (req, res) => {
     //check if student exists
     const studentFound = await Student.findOne({ email });
     //Check if password is match
-    if (studentFound && (await studentFound.isPasswordMatched(password))) {
+    if (studentFound) {
       res.json({
         _id: studentFound?._id,
         firstName: studentFound?.firstName,

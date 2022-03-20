@@ -34,7 +34,7 @@ const teacherRegisterCtrl = expressAsyncHandler(async (req, res) => {
     //check if teacher exists
     const teacherFound = await Teacher.findOne({ email });
     //Check if password is match
-    if (teacherFound && (await teacherFound.isPasswordMatched(password))) {
+    if (teacherFound) {
       res.json({
         _id: teacherFound?._id,
         firstName: teacherFound?.firstName,
